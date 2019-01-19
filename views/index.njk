@@ -3,5 +3,16 @@
 {% extends "layout.njk" %}
 
 {% block content %}
-<p>Coucou je m'appelle Pull.</p>
+
+<div class="chk-box">
+  <div>
+    <label for="powerCheckbox">Motor Power:</label>
+    <input type="checkbox" id="powerCheckbox" />
+  </div>
+</div>
+
+<p>
+  <input type="text" id="angletInput" size="4" value="0" /><button id="angleButton">Change angle</button>
+</p>
+
 {% endblock %}
