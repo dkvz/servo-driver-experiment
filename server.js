@@ -1,6 +1,6 @@
 const express = require('express');
 const nunjucks = require('nunjucks');
-const five = require('johnny-five');
+const Control = require('./control');
 
 const pins = {
   servo: 12,
@@ -24,15 +24,7 @@ const state = {
   servo: undefined
 };
 
-// Disable the repl for this.
-const board = new five.Board({repl: false});
-board.on('ready', function() {
-  state.servo = new five.Servo(pin.servo);
-  state.powerPin = new five.Pin(pin.motorPower);
-  state.servo.min();
-  // Set initial state here:
-  state.ready = true;
-});
+const control = new Control(state, pins, process.env.DISABLE_BOARD ? true : false);
 
 app.get('/', function(req, res) {
   res.render('index.njk', {boardReady: state.ready});
