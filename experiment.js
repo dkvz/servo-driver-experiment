@@ -8,7 +8,10 @@ board.on('ready', function() {
   });
   pin22.high();
 
+  const servo = new five.Servo(12);
+
   this.repl.inject({
-    pin22
+    pin22,
+    servo
   });
 });

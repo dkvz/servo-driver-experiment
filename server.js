@@ -27,8 +27,8 @@ const state = {
 // Disable the repl for this.
 const board = new five.Board({repl: false});
 board.on('ready', function() {
-  state.servo = new five.Servo(12);
-  state.powerPin = new five.Pin(24);
+  state.servo = new five.Servo(pin.servo);
+  state.powerPin = new five.Pin(pin.motorPower);
   state.servo.min();
   // Set initial state here:
   state.ready = true;
